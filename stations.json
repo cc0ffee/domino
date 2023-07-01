@@ -1,0 +1,23 @@
+{
+    "Orange": {"Midway": 40930, "Pulaski": 40960, "Kedzie": 41150, "Western": 40310, "35th/Archer": 40120, "Ashland": 41060, "Halsted": 41130,
+                "Roosevelt": 41400, "Harold Washington Library-State/Van Buren": 40850, "LaSalle/Van Buren": 40160, "Quincy": 40040,
+                "Washington/Wells": 40730, "Clark/Lake": 40380, "State/Lake": 40260, "Washington/Wabash": 41700, "Adams/Wabash": 40680},
+    "Red": {"95th/Dan Ryan": 40450, "87th": 41430, "79th": 40240, "69th": 40990, "63rd": 40910, "Garfield": 41170, "47th": 41230, "Sox-35th": 40190, 
+            "Cermak-Chinatown": 41000, "Roosevelt": 41400, "Harrison": 41490, "Jackson": 40560, "Monroe": 41090, "Lake": 41660, "Grand": 40330, "Chicago": 41450, 
+            "Clark/Division": 40630, "North/Clybourn": 40650, "Fullerton": 41220, "Belmont": 41320, "Addison": 41420, "Sheridan": 40080, "Argyle": 41200, 
+            "Thorndale": 40880, "Granville": 40760, "Loyola": 41300, "Morse": 40100, "Jarvis": 41190, "Howard": 40900},
+    "Green": {},
+    "Blue": {"O'Hare": 40890, "Rosemont": 40820, "Cumberland": 40230, "Harlem (O'Hare)": 40750, "Jefferson Park": 41280, "Montrose": 41330, "Irving Park": 40550,
+             "Addison": 41240, "Belmont": 40060, "Logan Square": 41020, "California": 40570, "Western (O'Hare)": 40670, "Damen": 40590, "Division": 40320, "Chicago": 41410, 
+             "Grand": 40490, "Clark/Lake": 40380, "Washington": 40370, "Monroe": 40790, "Jackson": 40070, "LaSalle": 41340, "Clinton": 40430, "UIC-Halsted": 40350,
+             "Racine": 40470, "Illinois Medical District": 40810, "Western": 40220, "Kedzie-Homan": 40250, "Pulaski": 40920, "Cicero": 40970, "Austin": 40010, "Oak Park":40180, 
+             "Harlem": 40980, "Forest Park": 40390},
+    "Brown": {"Kimball": 41290, "Kedzie": 41180, "Francisco": 40870, "Rockwell": 41010, "Western": 41480, "Damen": 40090, "Montrose": 41500, "Irving Park": 41460,
+              "Addison": 41440, "Paulina": 41310, "Southport": 40360, "Belmont": 41320, "Wellington": 41210, "Diversey": 40530, "Fullerton": 41220, "Armitage": 40660, 
+              "Sedgewick": 40800, "Chicago": 40710, "Merchandise Mart": 40460},
+    "Pink": {"54th/Cermak": 40580, "Cicero": 40420, "Kostner": 40600, "Pulaski": 40150, "Central Park": 40780, "Kedzie": 41040, "California": 40440,
+             "Western": 40740, "Damen": 40210, "18th": 40830, "Polk": 41030, "Ashland": 40170, "Morgan": 41510, "Clinton": 41160},
+    "Purple": {"Linden": 41050, "Central": 41250, "Noyes": 40400, "Foster": 40520, "Davis": 40050, "Dempster": 40690, "Main": 40270, "South Boulevard": 40840, "Howard": 40900},
+    "Yellow": {"Dempster-Skokie": 40140, "Oakton-Skokie": 41680, "Howard": 40900}
+    
+}
