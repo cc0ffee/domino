@@ -38,7 +38,7 @@ class Train(commands.Cog):
                         "mapid": self.data[selectLines.values[0]][selectStations.values[0]],
                         "outputType": "JSON"
                     }
-                    requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL:@SECLEVEL=1'
+                    requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'HIGH:!DH:!aNULL'
                     response = requests.get(f'https://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?', params=params)
                     resp_result = response.json()
                     body = resp_result["ctatt"]["eta"]
