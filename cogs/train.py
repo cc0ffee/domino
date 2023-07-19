@@ -1,6 +1,6 @@
 import discord
 from discord import app_commands
-from discord.ui import Select, View
+from discord.ui import Select, View, Button
 from discord.ext import commands
 import requests
 import json
@@ -104,7 +104,7 @@ class Train(commands.Cog):
                     options=[discord.SelectOption(label=branch) for branch in self.data[selectLines.values[0]]]
                 )
 
-                extended_lines = ["Red", "Green", "Blue"]
+                extended_lines = ["Red", "Green", "Blue", "Purple"]
 
                 selectStations.callback = get_arrivals
                 selectBranch.callback = choose_station
@@ -122,9 +122,11 @@ class Train(commands.Cog):
             selectLines = Select(
                 placeholder="Please select a line",
                 options=[discord.SelectOption(label=line, description=info['desc'], emoji=info['emoji']) for line, info in self.lines.items()])
-            selectLines.callback = line_callback
+            
+            selectLines.callback = line_callback 
             viewLines = View()
             viewLines.add_item(selectLines)
+            
             await interaction.response.send_message("Hello! Which line are you taking?", view=viewLines)
 
         except Exception as e:
