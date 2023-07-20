@@ -15,6 +15,7 @@ Service towards *North and South bound destinations*
 Arrival Times for each service (📶 properly tracked by CTA, 🕒 based by schedule from CTA)
 ```
 #### Example of usage
+![](example.gif)
 
 ### How to run
 To self-host this bot, you would need a [Discord Bot Token](https://discord.com/developers/applications) and a [CTA Train Tracker API Token](https://www.transitchicago.com/developers/traintracker/) respectively. 
