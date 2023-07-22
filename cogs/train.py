@@ -22,11 +22,20 @@ class Train(commands.Cog):
         self.data = json.load(open('./stations.json', 'r'))
 
     def normal_round(self, n):
+        '''
+        Helps with providing a more "accurate" time to each arrival
+        Similar to what the boards at stations display in terms in minutes
+        '''
         if n - math.floor(n) < 0.5:
             return math.floor(n)
         return math.ceil(n)
 
     def arrival_string(self, body: json, i: int, string: str):
+        '''
+        Called from get_arrival_times, provides string for each time presented from the request
+        The predicted arrival time is subtracted from the current time (It takes from OS, but it SHOULD be CST)
+        It checks for any flags, such as if the train is approaching the station or if it is delayed, it will be displayed in the message
+        '''
         time = datetime.fromisoformat(body[i]["arrT"])
         current_time = datetime.now()
         minute_til_arrival = time - current_time
@@ -39,6 +48,11 @@ class Train(commands.Cog):
         return string
 
     def get_arrival_times(self, params, rt: str):
+        '''
+        Gives the requested station's arrival times
+        Takes params to put into the ttarrivals api link and get the response body to parse
+        Loops through each entry to display all arrivals at a station
+        '''
         requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'HIGH:!DH:!aNULL'
         response = requests.get(f'https://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?', params=params)
         resp_result = response.json()
@@ -50,7 +64,8 @@ class Train(commands.Cog):
                 if trDr1 == "":
                     trDr1 += f'**Service towards {body[i]["destNm"]}**\n'
                 trDr1 = self.arrival_string(body, i, trDr1)
-            elif body[i]["trDr"] == "5" and body[i]["rt"] == rt["rt"]: 
+            elif body[i]["trDr"] == "5" and body[i]["rt"] == rt["rt"]:
+                # make a special case for UIC-Halsted + Forest Park and 63rd/Ashland + Cottage Grove
                 if trDr5 == "":
                     trDr5 += f'\n**Service towards {body[i]["destNm"]}**\n'
                 trDr5 = self.arrival_string(body, i, trDr5)
