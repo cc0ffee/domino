@@ -44,8 +44,8 @@ class Train(commands.Cog):
             status = "DUE"
         elif body[i]["isDly"] == "1":
             status = "DELAYED"
-        string += f'*{str(self.normal_round(minute_til_arrival.total_seconds()/60))+"m" if status == None else status}' 
-        + f' {"📶" if body[i]["isSch"] == "0" else "🕒"}* '
+        icon_choice = "📶" if body[i]["isSch"] == "0" else "🕒"
+        string += f'*{str(self.normal_round(minute_til_arrival.total_seconds()/60))+"m" if status == None else status} {icon_choice}* '
         return string
 
     def get_arrival_times(self, params, rt: str):
@@ -144,7 +144,6 @@ class Train(commands.Cog):
             selectLines.callback = line_callback
             viewLines = View()
             viewLines.add_item(selectLines)
-            
             await interaction.response.send_message("Hello! Which line are you taking?", view=viewLines)
 
         except Exception as e:
