@@ -44,7 +44,8 @@ class Train(commands.Cog):
             status = "DUE"
         elif body[i]["isDly"] == "1":
             status = "DELAYED"
-        string += f'*{str(self.normal_round(minute_til_arrival.total_seconds()/60))+"m" if status == None else status} {"📶" if body[i]["isSch"] == "0" else "🕒"}* '
+        string += f'*{str(self.normal_round(minute_til_arrival.total_seconds()/60))+"m" if status == None else status}' 
+        + f' {"📶" if body[i]["isSch"] == "0" else "🕒"}* '
         return string
 
     def get_arrival_times(self, params, rt: str):
@@ -103,7 +104,7 @@ class Train(commands.Cog):
 
                     selectExtStations = Select(
                         placeholder="Select a station",
-                        options=[discord.SelectOption(label=station) for station in self.data[selectLines.values[0]][selectBranch.values[0] 
+                        options=[discord.SelectOption(label=station) for station in self.data[selectLines.values[0]][selectBranch.values[0]
                                  if selectLines.values[0] in extended_lines else selectStations.values[0]]]
                     )
                     selectExtStations.callback = get_arrivalsExt
@@ -139,7 +140,7 @@ class Train(commands.Cog):
             selectLines = Select(
                 placeholder="Please select a line",
                 options=[discord.SelectOption(label=line, description=info['desc'], emoji=info['emoji']) for line, info in self.lines.items()])
-                          
+
             selectLines.callback = line_callback
             viewLines = View()
             viewLines.add_item(selectLines)
