@@ -22,9 +22,8 @@
     "Pink": {"54th/Cermak": 40580, "Cicero": 40420, "Kostner": 40600, "Pulaski": 40150, "Central Park": 40780, "Kedzie": 41040, "California": 40440,
              "Western": 40740, "Damen": 40210, "18th": 40830, "Polk": 41030, "Ashland": 40170, "Morgan": 41510, "Clinton": 41160, "Loop": {"Clark/Lake": 40380, "State/Lake": 40260, "Washington/Wabash": 41700, "Adams/Wabash": 40680,
              "Harold Washington Library-State/Van Buren": 40850, "LaSalle/Van Buren": 40160, "Quincy": 40040, "Washington/Wells": 40730}},
-    "Purple": {"Evanston Branch": {"Linden": 41050, "Central": 41250, "Noyes": 40400, "Foster": 40520, "Davis": 40050, "Dempster": 40690, "Main": 40270, "South Boulevard": 40840, "Howard": 40900}, 
-               "Purple Line Express": {"Howard": 40900, "Wilson": 40540, "Belmont": 41320, "Wellington": 41210, "Diversey": 40530, "Fullerton": 41220, "Armitage": 40660, 
-               "Sedgewick": 40800, "Chicago": 40710, "Merchandise Mart": 40460, "Loop": {"Clark/Lake": 40380, "State/Lake": 40260, "Washington/Wabash": 41700, "Adams/Wabash": 40680, "Harold Washington Library-State/Van Buren": 40850, 
-               "LaSalle/Van Buren": 40160, "Quincy": 40040, "Washington/Wells": 40730}}},
+    "Purple": {"Linden": 41050, "Central": 41250, "Noyes": 40400, "Foster": 40520, "Davis": 40050, "Dempster": 40690, "Main": 40270, "South Boulevard": 40840, "Howard": 40900, 
+               "Wilson": 40540, "Belmont": 41320, "Wellington": 41210, "Diversey": 40530, "Fullerton": 41220, "Armitage": 40660, "Sedgewick": 40800, "Chicago": 40710, "Merchandise Mart": 40460, "Loop": {"Clark/Lake": 40380, "State/Lake": 40260, 
+               "Washington/Wabash": 41700, "Adams/Wabash": 40680, "Harold Washington Library-State/Van Buren": 40850, "LaSalle/Van Buren": 40160, "Quincy": 40040, "Washington/Wells": 40730}},
     "Yellow": {"Dempster-Skokie": 40140, "Oakton-Skokie": 41680, "Howard": 40900}
 }

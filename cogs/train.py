@@ -1,17 +1,17 @@
 import discord
 from discord import app_commands
-from discord.ui import Select, View, Button
+from discord.ui import Select, View
 from discord.ext import commands
 import requests
 import json
-from datetime import datetime, timedelta
+from datetime import datetime
 import os
 import math
 
 class Train(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.lines = {"Orange": {"desc": "Midway - Loop", "emoji": "🟠", "rt": "Org"}, 
+        self.lines = {"Orange": {"desc": "Midway - Loop", "emoji": "🟠", "rt": "Org"},
         "Red": {"desc": "Howard - 95th/Dan Ryan", "emoji": "🔴", "rt": "Red"}, 
         "Green": {"desc": "Harlem - Ashland/63rd", "emoji": "🟢", "rt": "G"}, 
         "Blue": {"desc": "O'hare - Forest Park", "emoji": "🔵", "rt": "Blue"}, 
@@ -54,12 +54,12 @@ class Train(commands.Cog):
         Loops through each entry to display all arrivals at a station
         '''
         requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'HIGH:!DH:!aNULL'
-        response = requests.get(f'https://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?', params=params)
+        response = requests.get('https://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?', params=params)
         resp_result = response.json()
         body = resp_result["ctatt"]["eta"]
         trDr1, trDr5 = "", ""
         string = f'**{body[0]["staNm"]}**\n*Displaying {rt["emoji"]} arrival times*\n'
-        for i in range(len(body)):
+        for i, _ in enumerate(body):
             if body[i]["trDr"] == "1" and body[i]["rt"] == rt["rt"]:
                 if trDr1 == "":
                     trDr1 += f'**Service towards {body[i]["destNm"]}**\n'
@@ -78,7 +78,7 @@ class Train(commands.Cog):
             async def line_callback(interaction):
 
                 async def get_arrivals(interaction):
-                    if selectStations.values[0] == "Loop": 
+                    if selectStations.values[0] == "Loop":
                         await choose_station(interaction)
                         return
                     params = {
@@ -94,7 +94,8 @@ class Train(commands.Cog):
                     async def get_arrivalsExt(interaction):
                         params = {
                             "key": os.getenv("CTA_TRAIN_TOKEN"),
-                            "mapid": self.data[selectLines.values[0]][selectBranch.values[0] if selectLines.values[0] in extended_lines else selectStations.values[0]][selectExtStations.values[0]],
+                            "mapid": self.data[selectLines.values[0]][selectBranch.values[0] if selectLines.values[0] in extended_lines 
+                                     else selectStations.values[0]][selectExtStations.values[0]],
                             "outputType": "JSON"
                         }
                         stringtosend = self.get_arrival_times(params, rt=self.lines[selectLines.values[0]])
@@ -102,14 +103,15 @@ class Train(commands.Cog):
 
                     selectExtStations = Select(
                         placeholder="Select a station",
-                        options=[discord.SelectOption(label=station) for station in self.data[selectLines.values[0]][selectBranch.values[0] if selectLines.values[0] in extended_lines else selectStations.values[0]]]
+                        options=[discord.SelectOption(label=station) for station in self.data[selectLines.values[0]][selectBranch.values[0] 
+                                 if selectLines.values[0] in extended_lines else selectStations.values[0]]]
                     )
                     selectExtStations.callback = get_arrivalsExt
                     viewStations = View()
                     viewStations.add_item(selectExtStations)
                     await interaction.response.edit_message(content=f"Selected line: `{selectLines.values[0]}`\nWhich station are you at?", view=viewStations)
 
-                # Two options can occur:     
+                # Two options can occur:
                 selectStations = Select(
                     placeholder="Select a station",
                     options=[discord.SelectOption(label=station) for station in self.data[selectLines.values[0]]]
@@ -119,7 +121,7 @@ class Train(commands.Cog):
                     options=[discord.SelectOption(label=branch) for branch in self.data[selectLines.values[0]]]
                 )
 
-                extended_lines = ["Red", "Green", "Blue", "Purple"]
+                extended_lines = ["Red", "Green", "Blue"]
 
                 selectStations.callback = get_arrivals
                 selectBranch.callback = choose_station
@@ -137,8 +139,8 @@ class Train(commands.Cog):
             selectLines = Select(
                 placeholder="Please select a line",
                 options=[discord.SelectOption(label=line, description=info['desc'], emoji=info['emoji']) for line, info in self.lines.items()])
-            
-            selectLines.callback = line_callback 
+                          
+            selectLines.callback = line_callback
             viewLines = View()
             viewLines.add_item(selectLines)
             
@@ -146,7 +148,7 @@ class Train(commands.Cog):
 
         except Exception as e:
             print(e)
-            await interaction.response.send_message(f"Oops! There was an error :c")
+            await interaction.response.send_message("Oops! There was an error :c")
 
 async def setup(bot):
     await bot.add_cog(Train(bot))

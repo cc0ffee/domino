@@ -30,7 +30,7 @@ CTA_TRAIN_TOKEN=YOUR_CTA_TRAIN_TRACKER_TOKEN_HERE
 Run `python3 bot.py` and your bot should be running! Test using `/train` in a discord chat.
 
 ### Further plans / Fixes
-- Some tweaks to ensure accurate routes are being shown (UIC-Halsted, Cottage Grove)
-- Recommended places around the station
-- Bus route arrival times
-- "prettify" message/embeds
+-  Some tweaks to ensure accurate routes are being shown (UIC-Halsted, Cottage Grove)
+-  Recommended places around the station
+-  Bus route arrival times
+-  "prettify" message/embeds
