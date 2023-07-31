@@ -12,7 +12,7 @@ async def on_ready():
             await bot.load_extension(cog)
         synced = await bot.tree.sync()
         print(f"Synced {len(synced)} commands")
-        await bot.change_presence(status=discord.Status.online, activity=discord.Game("🌸🌸🌸"))
+        await bot.change_presence(status=discord.Status.online)
     except Exception as e:
         print(e)
 
