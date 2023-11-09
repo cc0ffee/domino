@@ -1,9 +1,13 @@
 import discord
 from discord.ext import commands
 import os
+from dotenv import load_dotenv
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 cogs = ["cogs.train"]
+
+load_dotenv()
+
 @bot.event
 async def on_ready():
     print("Bot is up")
