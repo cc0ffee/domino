@@ -1,4 +1,4 @@
-# Donimo, a CTA Rail Bot
+# Domino, a CTA Rail Bot
 
 Domino helps give arrival times for all CTA stations through discord's slash commands and interactions.
 
